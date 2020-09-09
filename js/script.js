@@ -66,7 +66,7 @@ function createElement(elemento){
 function deleteElement(id){
     $.ajax(
         {
-            url: 'http://157.230.17.132:3028/todos' + id,
+            url: 'http://157.230.17.132:3028/todos/' + id,
             method: 'DELETE',
             success:  function(risposta){
                 console.log(risposta);
