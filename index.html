@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.2/handlebars.min.js"></script>
+        <link rel="stylesheet" href="css/style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <title>Document</title>
+    </head>
+    <body>
+        <input type="text" id="nuova-voce" placeholder="inserisci una nuova voce">
+        <button class="inserisci">Inserisci</button>
+
+        <ol class="todos"></ol>
+
+
+
+        <script id="entry-template" type="text/x-handlebars-template">
+            <li data-id={{id}}>{{text}}<span class="delete">X</span></li>
+        </script>
+
+        <script src="js/script.js" charset="utf-8"></script>
+    </body>
+</html>
