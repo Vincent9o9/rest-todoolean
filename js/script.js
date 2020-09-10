@@ -13,6 +13,23 @@ $(document).ready(function() {
         createElement(newElement);
     });
 
+    $(document).on('click','span.testo',function (){
+        var elemento = $(this);
+        $('.testo').removeClass('hidden')
+        elemento.addClass('hidden');
+        $('.testo').next().addClass('hidden');
+        elemento.next().removeClass('hidden');
+
+    });
+
+    $(document).on('keydown', '.input-add', function(){
+        var idNewElement = $(this).parent().attr('data-id');
+        if(event.which == 13 || event.keyCode == 13){
+            var newElement = $(this).val();
+            updateElement(idNewElement,newElement);
+        }
+    });
+
 });
 
 function getData(){
@@ -28,6 +45,26 @@ function getData(){
             }
         }
     )
+};
+
+function updateElement(id,elemento){
+    $.ajax(
+        {
+            url: 'http://157.230.17.132:3028/todos/' + id,
+            method: 'PUT',
+            data: {
+                text: elemento
+            },
+            success:  function(risposta){
+                $('.todos').html('');
+                getData();
+            },
+            error: function(){
+                alert('Errore');
+            },
+        }
+    )
+
 };
 
 function getElement(data) {
